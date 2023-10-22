@@ -154,8 +154,8 @@ const Add = () => {
             name="description"
             rows="4"
             cols="30"
-            minLength="10"
-            maxLength="80"
+            minLength="3"
+            maxLength="150"
             placeholder="description........"
             onChange={handleDescriptionChange}
             value={description || ""}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { db } from "../firebase"
-import { useNavigate, Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { collection, getDoc, doc } from "firebase/firestore"
 import Card from "../componets/layout/Card"
 
