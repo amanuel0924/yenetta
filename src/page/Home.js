@@ -66,7 +66,10 @@ const Home = () => {
                 <tr key={item.id}>
                   <td>{index + 1}</td>
                   <td>{item.name}</td>
-                  <td>{item.price}</td>
+                  <td>
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    {item.price}
+                  </td>
                   <td>
                     <i className="fa fa-box"></i>
                     {item.quantity}
