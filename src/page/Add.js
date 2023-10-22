@@ -3,7 +3,14 @@ import { useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import classes from "./Add.module.css"
 import { db } from "../firebase"
-import { collection, addDoc } from "firebase/firestore"
+import { useNavigate, Link } from "react-router-dom"
+import {
+  collection,
+  addDoc,
+  onSnapshot,
+  updateDoc,
+  doc,
+} from "firebase/firestore"
 
 const Add = () => {
   const [data, setData] = useState({})
@@ -11,6 +18,38 @@ const Add = () => {
   const [price, setPriceState] = useState("")
   const [quantity, setQuantityState] = useState("")
   const [description, setDescriptionState] = useState("")
+  const { id } = useParams()
+  const navigate = useNavigate()
+  useEffect(() => {
+    onSnapshot(collection(db, "products"), (snapshot) => {
+      const filteredData = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }))
+      setData(filteredData)
+    })
+    return () => {
+      setData({})
+    }
+  }, [id])
+
+  useEffect(() => {
+    if (id) {
+      const obj = Array.isArray(data)
+        ? data.find((obj) => obj.id === id)
+        : { name: "", price: "", quantity: "", description: "" }
+      setNameState(obj.name)
+      setPriceState(+obj.price)
+      setQuantityState(+obj.quantity)
+      setDescriptionState(obj.description)
+    }
+    return () => {
+      setNameState("")
+      setPriceState("")
+      setQuantityState("")
+      setDescriptionState("")
+    }
+  }, [data, id])
 
   const handleNameChange = (event) => {
     setNameState(event.target.value)
@@ -29,28 +68,48 @@ const Add = () => {
 
   const onSubmitHandeler = async (event) => {
     event.preventDefault()
-    try {
-      await addDoc(collection(db, "products"), {
-        name: name,
-        price: price,
-        description: description,
-        quantity: quantity,
-      })
-      toast.success("added sucssusfuly")
-
-      setNameState("")
-      setPriceState("")
-      setQuantityState("")
-      setDescriptionState("")
-    } catch (err) {
-      toast.error(err)
+    if (!id) {
+      try {
+        await addDoc(collection(db, "products"), {
+          name: name,
+          price: +price,
+          description: description,
+          quantity: +quantity,
+        })
+        toast.success("added sucssusfuly")
+        setNameState("")
+        setPriceState("")
+        setQuantityState("")
+        setDescriptionState("")
+        navigate("/")
+      } catch (err) {
+        toast.error(err)
+      }
+    } else {
+      const docRef = doc(db, "products", id)
+      try {
+        await updateDoc(docRef, {
+          name: name,
+          price: +price,
+          description: +description,
+          quantity: quantity,
+        })
+        toast.success("updated successfully")
+        setNameState("")
+        setPriceState("")
+        setQuantityState("")
+        setDescriptionState("")
+        navigate("/")
+      } catch (err) {
+        toast.error("Error updating document: ", err)
+      }
     }
   }
 
   return (
     <form className={classes.wrapper} onSubmit={onSubmitHandeler}>
       <header>
-        <h2>title</h2>
+        <h2>`{id ? "update" : "Add"}`</h2>
       </header>
       <div>
         <input
@@ -61,7 +120,7 @@ const Add = () => {
           maxLength="20"
           placeholder="Product Name"
           onChange={handleNameChange}
-          value={name}
+          value={name || ""}
           required
         />
       </div>
@@ -75,7 +134,7 @@ const Add = () => {
           pattern="\d+(\.\d{1,2})?"
           placeholder="Price"
           onChange={handlePriceChange}
-          value={price}
+          value={price || "0" || ""}
           required
         />
       </div>
@@ -83,12 +142,9 @@ const Add = () => {
         <input
           type="number"
           name="quantity"
-          min="0"
-          max="10000"
           placeholder="Quantity"
-          pattern="\d+"
           onChange={handleQuantityChange}
-          value={quantity}
+          value={quantity || "0" || ""}
           required
         />
       </div>
@@ -101,14 +157,24 @@ const Add = () => {
           maxLength="80"
           placeholder="description........"
           onChange={handleDescriptionChange}
-          value={description}
+          value={description || ""}
           required
         />
       </div>
-
-      <button className={classes.btn} type="submit">
-        Add
-      </button>
+      <div>
+        <button className={classes.btn} type="submit">
+          {`${id ? "update" : "Add"}`}
+        </button>
+        <Link to="/">
+          <button
+            style={{ backgroundColor: "#f5fafa" }}
+            className={classes.btn}
+            type="submit"
+          >
+            Cancle
+          </button>
+        </Link>
+      </div>
     </form>
   )
 }

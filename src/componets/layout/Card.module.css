@@ -1,0 +1,85 @@
+
+  @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css);
+ 
+  .blog-card {
+    max-width: 80%;
+    box-sizing: border-box;
+    margin: 3rem auto;
+    box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s ease-in-out;
+    font-family:  sans-serif;
+
+  }
+  .blog-card h1{
+    text-transform: capitalize;
+    border-bottom: #000000 3px;
+  }
+  
+  .blog-card:hover {
+    transform: scale(1.03);
+  }
+  
+  
+  .blog-content {
+    background-color: #f5fafa;
+    padding: 0.3rem 2rem 1rem 2rem;
+    text-align: left;
+  }
+  
+  .author {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    overflow: hidden;
+  }
+  
+  
+  
+  
+  .blog-label {
+    display: inline-block;
+    background-color: rgb(194, 131, 16);
+    color: white;
+    border-radius: 15px;
+    padding: 0 1rem;
+    outline: none;
+    border: none;
+  }
+  .lable{
+    
+    color: white;
+    height: 30px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    padding: 0 1rem;
+    margin: 10px;
+  }
+  .btn{
+    background-color: rgb(112, 114, 113);
+  }
+  .instock{
+    background-color: rgb(66, 214, 123);
+  }
+  .outstock{
+    background-color: rgb(218, 109, 82);
+  }
+  .price{
+    background-color: rgb(82, 141, 218);
+  }
+  .quantity{
+    background-color: rgb(202, 212, 49);
+  }
+ 
+  
+  @media (min-width: 48rem) {
+    .blog-card {
+      max-width: 30%;
+    }
+  }
+  

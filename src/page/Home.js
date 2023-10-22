@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { db } from "../firebase"
 import { onSnapshot, collection, doc, deleteDoc } from "firebase/firestore"
 import { Link } from "react-router-dom"
+import { toast } from "react-toastify"
 
 const Home = () => {
   const [productList, setProductList] = useState([])
@@ -15,15 +16,22 @@ const Home = () => {
     })
   }, [])
   const onDelete = async (id) => {
-    const prodoc = doc(db, "products", id)
-    await deleteDoc(prodoc)
+    try {
+      if (window.confirm("Are you sure you want to delete?")) {
+        toast.success("succesfuly deleted")
+        const prodoc = doc(db, "products", id)
+        await deleteDoc(prodoc)
+      }
+    } catch (err) {
+      toast.error(err)
+    }
   }
   return (
     <div>
       <table>
         <thead>
           <tr>
-            <th>No.</th>
+            <th scope="row">No.</th>
             <th>Name</th>
             <th>Price</th>
             <th>Quantity</th>
@@ -35,7 +43,7 @@ const Home = () => {
           {productList.map((item, index) => {
             return (
               <tr key={item.id}>
-                <td scope="row">{index + 1}</td>
+                <td>{index + 1}</td>
                 <td>{item.name}</td>
                 <td>{item.price}</td>
                 <td>{item.quantity}</td>

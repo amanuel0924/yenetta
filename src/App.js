@@ -13,13 +13,13 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <ToastContainer position="top-center" />
+        <ToastContainer position="top-center" autoClose={1000} />
 
         <Routes>
           <Route exact path="/" Component={Home} />
           <Route path="/add" Component={Add} />
           <Route path="/update/:id" Component={Add} />
-          <Route path="/view/:id" Component={View} />
+          <Route path="/veiw/:id" Component={View} />
           <Route path="/about" Component={About} />
         </Routes>
       </div>
