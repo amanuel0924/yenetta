@@ -1,12 +1,14 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css);
 .header {
        width: 100%;
-       height: auto;
+       height: 150px;
+       position: fixed;
+       top:0;
        display: flex;
        justify-content: space-evenly;
        align-items: center;
        overflow: hidden;
-       margin: 20px 0;
+       background-color: white;
        z-index: 10;
        
        
