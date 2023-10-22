@@ -12,6 +12,7 @@
     flex-direction: column;
     transition: transform 0.5s ease-in-out;
     font-family:  sans-serif;
+    margin-top: 10rem;
 
   }
   .blog-card h1{

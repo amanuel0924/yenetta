@@ -2,13 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10rem;
 }
 form {
    min-width:300px;
     max-width: 500px;
+    max-height: 500px;
     background-color: white;
     padding: 1rem;
-    margin-top: 20px;
     border-radius: 14px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     animation: slide-down 300ms ease-out forwards;
