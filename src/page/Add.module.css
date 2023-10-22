@@ -1,9 +1,8 @@
 form {
     position: fixed;
-    top: 20vh;
-    left: 5%;
-    width: 400px;
-    margin-top: 40px;
+    top: 18vh;
+    
+    width: auto;
     left: 35%;
     background-color: white;
     padding: 1rem;
@@ -40,11 +39,19 @@ form {
   input::placeholder ,textarea::placeholder{
     
     font-size: 1rem;
-    color: rgb(58, 56, 56);
+    color: rgb(76, 89, 109);
     font-weight: bolder;
     padding: 5px;
   }
   footer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  a{
+    text-decoration: none;
+  }
+  .btncontainer{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -58,6 +65,7 @@ form {
     width: 150px;
     height: 40px;
     margin: 20px;
+    
     border-radius: 20px;
     font-weight: bold;
     border: 2px solid #9a9a9a;
@@ -69,6 +77,12 @@ form {
     box-shadow: 0 0 #fff;
     transform: translateY(1px);
     cursor: pointer;
-    color: #cbdb2c;
+    color: #838677;
     background-color: #101010;
+  }
+  @media screen and (max-width: 600px) {
+
+form{
+  left: 5em;
+}
   }

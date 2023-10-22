@@ -22,12 +22,37 @@ function Card(props) {
         </div>
         <h1>{props.name}</h1>
         <p>{props.description}</p>
-        <Link to="/">
-          <button className={`${classes.btn} ${classes.lable}`}>
-            <i class="fa-regular fa-circle-left"></i>
-            <p>Back</p>
-          </button>
-        </Link>
+        {props.showbutton === "view" ? (
+          <Link to="/">
+            <button className={`${classes.btn} ${classes.lable}`}>
+              <i class="fa-regular fa-circle-left"></i>
+              <p>Back</p>
+            </button>
+          </Link>
+        ) : (
+          <div className={classes.btncontainer}>
+            <Link to={`/veiw/${props.id}`}>
+              <button className={classes.detail}>
+                <i className="fa-solid fa-info"></i>
+              </button>
+            </Link>
+            <Link to={`/update/${props.id}`}>
+              <button className={classes.update}>
+                <i className="fa-solid fa-pen-to-square"></i>
+              </button>
+            </Link>
+            <Link>
+              <button
+                className={classes.delete}
+                onClick={() => {
+                  props.onDelete(props.id)
+                }}
+              >
+                <i className="fa fa-trash-can"></i>
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   )

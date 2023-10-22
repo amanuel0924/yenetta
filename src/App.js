@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <ToastContainer position="top-center" autoClose={1000} />
+        <ToastContainer position="top-center" autoClose={500} />
 
         <Routes>
           <Route exact path="/" Component={Home} />

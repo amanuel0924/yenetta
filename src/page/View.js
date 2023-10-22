@@ -28,6 +28,7 @@ const View = () => {
         price={price}
         quantity={quantity}
         description={description}
+        showbutton="view"
       />
     </div>
   )

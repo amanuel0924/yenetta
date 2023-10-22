@@ -24,12 +24,9 @@
 }
 .nav a p{
     font-size: 20px;
-    font-family: sans-serif;
-    
     font-weight: bold;
     color: black;
     margin:15px;
-    
     text-align: center;
     border-radius: 5px;
     
@@ -46,13 +43,11 @@
 .header img{
    width: 10rem;
    height: 10rem;
-   
+   padding-top: 1rem;
 }
-span{
-   color:#CBDB2C
-}
+
 .links a{
-   font-size: 30px;
+   font-size: 20px;
    color: rgb(19, 18, 18);
    margin: 25px 10px;
 }
@@ -61,7 +56,7 @@ span{
    cursor: pointer;
 }
 @media screen and (max-width: 600px) {
-   .links a, .header h1{
+ .linls{
        display: none;
    }
    .header{

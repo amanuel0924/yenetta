@@ -34,10 +34,10 @@ const Add = () => {
   }, [id])
 
   useEffect(() => {
-    if (id) {
-      const obj = Array.isArray(data)
-        ? data.find((obj) => obj.id === id)
-        : { name: "", price: "", quantity: "", description: "" }
+    const obj = Array.isArray(data)
+      ? data.find((obj) => obj.id === id)
+      : { name: "", price: "", quantity: "", description: "" }
+    if (obj) {
       setNameState(obj.name)
       setPriceState(+obj.price)
       setQuantityState(+obj.quantity)
@@ -161,7 +161,7 @@ const Add = () => {
           required
         />
       </div>
-      <div>
+      <div className={classes.btncontainer}>
         <button className={classes.btn} type="submit">
           {`${id ? "update" : "Add"}`}
         </button>
