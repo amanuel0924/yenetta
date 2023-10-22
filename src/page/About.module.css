@@ -1,13 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Kalam:wght@400;500;600;700&display=swap");
 .container{
     width: 100%;
-    height: 100%;
-    margin-top: 100px;
- 
+    height: 100vh;
+    background-color: #dbdb78;
+opacity: 0.8;
+background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #eded5b 40px ), repeating-linear-gradient( #b8c33855, #b8c338 );
+    
+    
 }
 .h1{
     font-family: "Kalam", sans-serif;
+    padding-top: 20px;
 }
-span{
-    color: rgb(224, 226, 66);
+.span{
+    color: rgb(255, 255, 255);
 }
+

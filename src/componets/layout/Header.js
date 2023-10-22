@@ -20,35 +20,32 @@ const Header = () => {
       <img src={logo} alt="logo yeneta store" />
 
       <div className={classes.nav}>
-        <Link to="/">
-          <p
-            className={`${actives === "Home" ? classes.active : ""}`}
-            onClick={() => {
-              setActive("Home")
-            }}
-          >
-            Home
-          </p>
+        <Link
+          to="/"
+          className={`${actives === "Home" ? classes.active : ""}`}
+          onClick={() => {
+            setActive("Home")
+          }}
+        >
+          <p>Home</p>
         </Link>
-        <Link to="/add">
-          <p
-            className={`${actives === "add" ? classes.active : ""}`}
-            onClick={() => {
-              setActive("add")
-            }}
-          >
-            Add Product
-          </p>
+        <Link
+          to="/add"
+          className={`${actives === "add" ? classes.active : ""}`}
+          onClick={() => {
+            setActive("add")
+          }}
+        >
+          <p>Add Product</p>
         </Link>
-        <Link to="/about">
-          <p
-            className={`${actives === "about" ? classes.active : ""}`}
-            onClick={() => {
-              setActive("about")
-            }}
-          >
-            About
-          </p>
+        <Link
+          to="/about"
+          className={`${actives === "about" ? classes.active : ""}`}
+          onClick={() => {
+            setActive("about")
+          }}
+        >
+          <p>About</p>
         </Link>
       </div>
       <div className={classes.links}>

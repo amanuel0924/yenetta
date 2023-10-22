@@ -91,8 +91,8 @@ const Add = () => {
         await updateDoc(docRef, {
           name: name,
           price: +price,
-          description: +description,
-          quantity: quantity,
+          description: description,
+          quantity: +quantity,
         })
         toast.success("updated successfully")
         setNameState("")

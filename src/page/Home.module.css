@@ -1,10 +1,11 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css);
+
 .tablecontainer{
   
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 50px;
+  padding-top: 40px;
 }
 .cardcontainer{
   display: none;
@@ -33,14 +34,14 @@ button {
   }
   
   .detail {
-    background-color: #6b7177;
+    background-color: #909494;
     width: 30px;
     height: 30px;
     font-size: 14px;
   }
   
   .update {
-    background-color: #0d0d0e;
+    background-color: #4e4e4d;
     color: rgb(255, 255, 255);
     width: 30px;
     height: 30px;
@@ -49,7 +50,7 @@ button {
   }
   
   .delete {
-    background-color: #c7d830;
+    background-color: #a5a3a3;
     width: 30px;
     height: 30px;
     font-size: 14px;
@@ -66,7 +67,7 @@ button {
   caption {
     padding: 10px;
     color: white;
-    background: #cfe472;
+    background: #535351;
     font-size: 18px;
     text-align: left;
     font-weight: bold;
@@ -86,7 +87,7 @@ button {
     background: white;
   }
   tr:nth-child(even) {
-    background: #E8E6D1;
+    background: #cacfcf59;
   }
   @media screen and (max-width: 600px) {
     .cardcontainer{

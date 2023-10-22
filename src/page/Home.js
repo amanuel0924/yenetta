@@ -29,7 +29,7 @@ const Home = () => {
     }
   }
   return (
-    <div>
+    <div className={classes.wraper}>
       <div className={classes.cardcontainer}>
         {productList.map((item, index) => {
           return (
@@ -67,8 +67,16 @@ const Home = () => {
                   <td>{index + 1}</td>
                   <td>{item.name}</td>
                   <td>{item.price}</td>
-                  <td>{item.quantity}</td>
-                  <td style={{ color: item.quantity > 0 ? "green" : "red" }}>
+                  <td>
+                    <i className="fa fa-box"></i>
+                    {item.quantity}
+                  </td>
+                  <td
+                    style={{
+                      color: item.quantity > 0 ? "green" : "red",
+                      fontStyle: "italic",
+                    }}
+                  >
                     {item.quantity > 0 ? "inStock" : "outStock"}
                   </td>
                   <td>
