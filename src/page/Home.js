@@ -8,18 +8,6 @@ import Card from "../componets/layout/Card"
 
 const Home = () => {
   const [productList, setProductList] = useState([])
-  const [isMobile, setIsMobile] = useState(false)
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 600)
-    }
-
-    window.addEventListener("resize", handleResize)
-
-    return () => {
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
   useEffect(() => {
     onSnapshot(collection(db, "products"), (snapshot) => {
       const filteredData = snapshot.docs.map((doc) => ({
@@ -42,79 +30,77 @@ const Home = () => {
   }
   return (
     <div>
-      {isMobile ? (
-        <div>
-          {productList.map((item, index) => {
-            return (
-              <Card
-                id={item.id}
-                key={item.id}
-                name={item.name}
-                price={item.price}
-                quantity={item.quantity}
-                description={item.description}
-                showbuttun="home"
-                onDelete={onDelete}
-              />
-            )
-          })}
-        </div>
-      ) : (
-        <div className={classes.container}>
-          <table>
-            <caption>Product List</caption>
-            <thead className={classes.head}>
-              <tr>
-                <th scope="row">No.</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {productList.map((item, index) => {
-                return (
-                  <tr key={item.id}>
-                    <td>{index + 1}</td>
-                    <td>{item.name}</td>
-                    <td>{item.price}</td>
-                    <td>{item.quantity}</td>
-                    <td style={{ color: item.quantity > 0 ? "green" : "red" }}>
-                      {item.quantity > 0 ? "inStock" : "outStock"}
-                    </td>
-                    <td>
-                      <div className={classes.btncontainer}>
-                        <Link to={`/veiw/${item.id}`}>
-                          <button className={classes.detail}>
-                            <i className="fa-solid fa-info"></i>
-                          </button>
-                        </Link>
-                        <Link to={`/update/${item.id}`}>
-                          <button className={classes.update}>
-                            <i className="fa-solid fa-pen-to-square"></i>
-                          </button>
-                        </Link>
-                        <Link>
-                          <button
-                            className={classes.delete}
-                            onClick={() => {
-                              onDelete(item.id)
-                            }}
-                          >
-                            <i className="fa fa-trash-can"></i>
-                          </button>
-                        </Link>
-                      </div>
-                    </td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
-        </div>
-      )}
+      <div className={classes.cardcontainer}>
+        {productList.map((item, index) => {
+          return (
+            <Card
+              id={item.id}
+              key={item.id}
+              name={item.name}
+              price={item.price}
+              quantity={item.quantity}
+              description={item.description}
+              showbuttun="home"
+              onDelete={onDelete}
+            />
+          )
+        })}
+      </div>
+
+      <div className={classes.tablecontainer}>
+        <table>
+          <caption>Product List</caption>
+          <thead className={classes.head}>
+            <tr>
+              <th scope="row">No.</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {productList.map((item, index) => {
+              return (
+                <tr key={item.id}>
+                  <td>{index + 1}</td>
+                  <td>{item.name}</td>
+                  <td>{item.price}</td>
+                  <td>{item.quantity}</td>
+                  <td style={{ color: item.quantity > 0 ? "green" : "red" }}>
+                    {item.quantity > 0 ? "inStock" : "outStock"}
+                  </td>
+                  <td>
+                    <div className={classes.btncontainer}>
+                      <Link to={`/veiw/${item.id}`}>
+                        <button className={classes.detail}>
+                          <i className="fa-solid fa-info"></i>
+                        </button>
+                      </Link>
+                      <Link to={`/update/${item.id}`}>
+                        <button className={classes.update}>
+                          <i className="fa-solid fa-pen-to-square"></i>
+                        </button>
+                      </Link>
+                      <Link>
+                        <button
+                          className={classes.delete}
+                          onClick={() => {
+                            onDelete(item.id)
+                          }}
+                        >
+                          <i className="fa fa-trash-can"></i>
+                        </button>
+                      </Link>
+                    </div>
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }
