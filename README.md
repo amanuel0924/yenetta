@@ -14,4 +14,11 @@ This is a simple Inventory Management System designed for managing a list of ite
 - React: For building the user interface.
 - Firebase Firestore: For the database and real-time data synchronization.
 - Vercel: For deployment and hosting.
-  
+
+  ## 
+![home page mobil responsive](https://github.com/amanuel0924/yenetta/assets/89680444/45ba0c54-998e-45ad-a200-25f57485addb)
+- ![add page to record product](https://github.com/amanuel0924/yenetta/assets/89680444/21fc1390-7687-4ab8-8a2e-c7a5b5ebd79a)
+
+  ![my HOME page with list](https://github.com/amanuel0924/yenetta/assets/89680444/6cf4c4c7-6433-49b9-9825-cfec1095993f)
+![when mobile mode addpage](https://github.com/amanuel0924/yenetta/assets/89680444/a998c229-9991-4826-8612-fc6a5ca3c1e3)
+
