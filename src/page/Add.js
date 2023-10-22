@@ -107,75 +107,77 @@ const Add = () => {
   }
 
   return (
-    <form className={classes.wrapper} onSubmit={onSubmitHandeler}>
-      <header>
-        <h2>`{id ? "update" : "Add"}`</h2>
-      </header>
-      <div>
-        <input
-          type="text"
-          pattern="[A-Za-z0-9\s]+"
-          name="productName"
-          minLength="1"
-          maxLength="20"
-          placeholder="Product Name"
-          onChange={handleNameChange}
-          value={name || ""}
-          required
-        />
-      </div>
-      <div>
-        <input
-          type="number"
-          name="price"
-          min="0"
-          max="10000000"
-          step="1"
-          pattern="\d+(\.\d{1,2})?"
-          placeholder="Price"
-          onChange={handlePriceChange}
-          value={price || "0" || ""}
-          required
-        />
-      </div>
-      <div>
-        <input
-          type="number"
-          name="quantity"
-          placeholder="Quantity"
-          onChange={handleQuantityChange}
-          value={quantity || "0" || ""}
-          required
-        />
-      </div>
-      <div>
-        <textarea
-          name="description"
-          rows="4"
-          cols="30"
-          minLength="10"
-          maxLength="80"
-          placeholder="description........"
-          onChange={handleDescriptionChange}
-          value={description || ""}
-          required
-        />
-      </div>
-      <div className={classes.btncontainer}>
-        <button className={classes.btn} type="submit">
-          {`${id ? "update" : "Add"}`}
-        </button>
-        <Link to="/">
-          <button
-            style={{ backgroundColor: "#f5fafa" }}
-            className={classes.btn}
-            type="submit"
-          >
-            Cancle
+    <div className={classes.container}>
+      <form className={classes.wrapper} onSubmit={onSubmitHandeler}>
+        <header>
+          <h2>{id ? "update" : "Add"}</h2>
+        </header>
+        <div>
+          <input
+            type="text"
+            pattern="[A-Za-z0-9\s]+"
+            name="productName"
+            minLength="1"
+            maxLength="20"
+            placeholder="Product Name"
+            onChange={handleNameChange}
+            value={name || ""}
+            required
+          />
+        </div>
+        <div>
+          <input
+            type="number"
+            name="price"
+            min="0"
+            max="10000000"
+            step="1"
+            pattern="\d+(\.\d{1,2})?"
+            placeholder="Price"
+            onChange={handlePriceChange}
+            value={price || "0" || ""}
+            required
+          />
+        </div>
+        <div>
+          <input
+            type="number"
+            name="quantity"
+            placeholder="Quantity"
+            onChange={handleQuantityChange}
+            value={quantity || "0" || ""}
+            required
+          />
+        </div>
+        <div>
+          <textarea
+            name="description"
+            rows="4"
+            cols="30"
+            minLength="10"
+            maxLength="80"
+            placeholder="description........"
+            onChange={handleDescriptionChange}
+            value={description || ""}
+            required
+          />
+        </div>
+        <div className={classes.btncontainer}>
+          <button className={classes.btn} type="submit">
+            {`${id ? "update" : "Add"}`}
           </button>
-        </Link>
-      </div>
-    </form>
+          <Link to="/">
+            <button
+              style={{ backgroundColor: "#f5fafa" }}
+              className={classes.btn}
+              type="submit"
+            >
+              Cancle
+            </button>
+          </Link>
+        </div>
+      </form>
+    </div>
   )
 }
 

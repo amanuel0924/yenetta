@@ -56,7 +56,8 @@ button {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     border-collapse: collapse;
     color: #686461;
-    min-width: 600px;
+    min-width: 400px;
+    width: 60%;
   }
   caption {
     padding: 10px;
